@@ -90,16 +90,16 @@ WSGI_APPLICATION = 'britannia4u.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'britannia4u1',
-#         'USER': 'postgres',
-#         'PASSWORD': '12345',
-#         'HOST': '127.0.0.1',
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'britannia4u1',
+        'USER': 'praveen',
+        'PASSWORD': 'praveen@3112',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
 
 
 # DATABASES = {
