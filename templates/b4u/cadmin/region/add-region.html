@@ -1,0 +1,215 @@
+{% extends 'b4u/includes/base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .ui-dropdownchecklist-selector {
+            padding: 5px;
+        }
+
+        .ui-dropdownchecklist-selector imput {
+            width: 20px !important;
+        }
+
+        .Redemption_table input[type="checkbox"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            width: 20px;
+        }
+
+
+        .ui-state-default,
+        .ui-widget-content .ui-state-default,
+        .ui-widget-header .ui-state-default {
+            font-size: 12px;
+        }
+
+        .ms-drop {
+            width: 351px !important;
+        }
+
+        .ms-choice > span {
+            width: 330px !important;
+        }
+
+        .white-space {
+            white-space: pre;
+        }
+
+        .badge-light {
+            color: #323a46;
+            background-color: #f7f7f7;
+            display: contents !important;
+        }
+
+        .badge-light {
+            color: #323a46;
+            background-color: #f7f7f7;
+            display: contents !important;
+        }
+
+        .table > tbody > tr > td,
+        .table > tbody > tr > th,
+        .table > tfoot > tr > td,
+        .table > tfoot > tr > th,
+        .table > thead > tr > td,
+        .table > thead > tr > th {
+            padding: 4px !important;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border: 1px solid #ddd;
+
+            overflow: hidden;
+            white-space: initial;
+            border-bottom-color: inherit;
+            border-bottom-style: solid;
+            width: 0px !important;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .Export-text {
+            text-align: end;
+            margin-bottom: 10px;
+        }
+
+        .table > caption + thead > tr:first-child > td,
+        .table > caption + thead > tr:first-child > th,
+        .table > colgroup + thead > tr:first-child > td,
+        .table > colgroup + thead > tr:first-child > th,
+        .table > thead:first-child > tr:first-child > td,
+        .table > thead:first-child > tr:first-child > th {
+            border-top: 0;
+            vertical-align: inherit;
+        }
+
+        .table > thead {
+            background: #337ab7;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        table.dataTable {
+            clear: both;
+            margin-top: 6px !important;
+            margin-bottom: 6px !important;
+            max-width: none !important;
+            border-collapse: collapse;
+            border: 1px solid;
+        }
+
+        .display-flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .edit-icon {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .tagr-img {
+            background: #000;
+            border-radius: 50px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            width: 20px;
+        }
+
+        .modal-width {
+            width: 81% !important;
+            margin: auto;
+        }
+    </style>
+
+
+
+
+    <div class="clearfix"></div>
+    <div class="MainDivContent">
+        <div class="container container_bg">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="Main_page">
+                            <h2 class="head-h2">
+                                Region Master
+                            </h2>
+                            <div class="mobile_div">
+
+                                <div class="container">
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <form id="form" action="{{ request.build_absolute_uri }}" method="POST">
+                                                    {% csrf_token %}
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Name * </label>
+                                                                {{ form.name }}
+                                                                <div class="error-messages">
+                                                                    {{ form.name.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Status *</label>
+                                                                {{ form.status }}
+                                                                <div class="error-messages">
+                                                                    {{ form.status.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>State</label>
+                                                                {{ form.state }}
+                                                                <div class="error-messages">
+                                                                    {{ form.state.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="col-lg-12 text-center">
+                                                            <div class="form-group">
+                                                                <button style="cursor: pointer;" class="btn btn-danger" type="submit">Save</button>
+
+                                                                <a href="{% url 'region-master' %}" class="btn btn-danger">Cancel</a>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+
+
+{% endblock %}
+
+
+{% block script %}
+
+
+
+{% endblock %}

@@ -1,0 +1,244 @@
+{% extends 'b4u/includes/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="MainDivContent">
+        <div class="container-fluid container_bg">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="container">
+                            <div class="homedivMid">
+                                <div class="row">
+                                    <div class="col-md-3 text-center">
+                                        <div class="profilebox">
+                                            <div class="profilePhoto">
+                                                <img src="https://www.britannia4u.com/Content/Images/no-image.png" />
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="profileboxText ">
+                                                        <div class="row">
+                                                            <a href="RetailerPayout">
+                                                                <div class="payouttext text-center">
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAYOUT</div>
+                                                                <div class=" text-center" id="dvPayData">
+                                                                </div>
+                                                            </a>
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-xs-12 text-center" style="margin-top:10px; font-weight:bold;">
+                                                                    <div class="text-center">
+                                                                        <a href="#" style="cursor:pointer; background-color:#87d156;" class="btn btn-default">View Payout</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row profileboximg">
+                                                        <div class="col-md-12 col-xs-12 text-center">
+                                                            <img src="https://www.britannia4u.com/Content/Images/payOut.png" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="profileQuery text-center">
+                                            <h4 class="mb-2">
+                                                <span class=" userText-text">
+                                                    Welcome,<br>
+                                                    <br>
+                                                    <span class="pro_name" id="displayname">test user</span>!
+                                                </span>
+                                            </h4><br />
+                                            <div class="row">
+                                                <div class="col-12">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="profileQuery text-center">
+                                            <h4><a href="ContactUsList.php"> <img src="{% static 'b4u/Content/Images/POST.png' %}" width="20" /> QUERIES</a></h4>
+                                            <div class="row">
+                                                <div class="col-md-6 text-success2 text-left">Open</div>
+                                                <div id="openCount" class="col-md-6 text-success2"></div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 text-success2 text-left">Closed</div>
+                                                <div id="closedCount" class="col-md-6 text-success2"></div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 text-success2 text-left">Total</div>
+                                                <div id="totalCount" class="col-md-6 text-success2"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-12 mob-d">
+                                                        <div class="row">
+                                                            <div class="col-md-12 col-xs-12">
+
+
+
+
+                                                                <div class="row trackBg">
+                                                                    <i class="fa fa-retweet fa-spin" style="font-size:28px;"></i>
+                                                                    <a href="UserDetail.php" class="trackBox-1">OUTLET LEVEL TRACKER</a>
+                                                                </div>
+                                                                <div class="row trackBg trackBg2">
+                                                                    <i class="fa fa-credit-card fa-spin" style="font-size:28px;"></i>
+                                                                    <a href="RetailerPayout.php" class="trackBox-1">
+                                                                        OUTLET
+                                                                        PAYOUTS</a>
+                                                                </div>
+                                                                <div class="row trackBg">
+                                                                    <i class="fa fa-trophy fa-spin" style="font-size:28px;"></i>
+                                                                    <a href="ViewTargetData.php" class="trackBox-2">
+                                                                        TARGET
+                                                                        vs ACHIEVEMENT</a>
+                                                                </div>
+                                                                <div class="row trackBg">
+                                                                    <i class="fa fa-refresh fa-spin" style="font-size:28px;"></i>
+                                                                    <a href="TargetApproveAdm.php" class="trackBox-3">
+                                                                        TARGET
+                                                                        REVISION</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="homedivbt2">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 pt-50">
+                                        <div class="redbtbg">
+                                            <div class="panel panel-default" style="margin-bottom: 20px;">
+                                                <div class="panel-heading">
+                                                    <div class="panel-title-box">
+                                                        <h3>
+                                                            Payout Pending
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <br /> <br />
+
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-xs-6 border-tab handPoint" onclick="return RedirectToQuery('RetailerPayout');">
+                                                            Total Amount
+                                                        </div>
+                                                        <div class="col-md-6 col-xs-6 border-tab text-right">
+                                                            1398333.53
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-xs-6 border-tab handPoint">
+                                                            <p> Unique outlets</p>
+                                                        </div>
+                                                        <div class="col-md-6 col-xs-6 border-tab text-right">
+                                                            <p> 2452</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12 text-danger handPoint" id="approvalpending">
+                                                            <div id="approvalpendingdata"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="panel panel-default" style="margin-bottom: 20px;">
+                                                <div class="panel-heading">
+                                                    <div class="panel-title-box">
+                                                        <h3>
+                                                            Login Details(MTD)
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <br /> <br />
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-xs-6 border-tab handPoint">
+                                                            Total Logins
+                                                        </div>
+                                                        <div class="col-md-6 text-right">
+                                                            <div class="form-group" id="totalLogins">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+
+                                                        <div class="col-md-6 col-xs-6 border-tab handPoint">
+                                                            Unique Logins
+                                                        </div>
+                                                        <div class="col-md-6 text-right">
+                                                            <div class="form-group" id="uniqueLogins">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12 text-danger handPoint" id="approvalpending">
+                                                            <div id="approvalpendingdata"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default" id="dvNotifications" style="display:none; margin-bottom: 20px;">
+                                                <div class="panel-heading">
+                                                    <div class="panel-title-box">
+                                                        <h3>
+                                                            <img src="{% static 'b4u/Content/Images/Notifi.png' %}" />
+                                                            &nbsp;&nbsp;&nbsp;Notifications
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <br /><br /><br />
+                                                    <div class="row">
+                                                        <div class="col-md-6 handPoint" id="casepending" onclick="return RedirectToQuery('ContactUsList');">
+                                                            Query pending
+                                                        </div>
+                                                        <div class="col-md-6 text-right">
+                                                            <div class="form-group">
+                                                                <span id="querypending" class="badge badge-danger handPoint"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12 text-danger handPoint" id="approvalpending">
+                                                            <div id="approvalpendingdata"></div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-->
+    <div class="clearfix"></div>
+
+{% endblock %}

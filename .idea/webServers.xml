@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="361acfb2-31a3-4345-9065-279186840b8a" name="praveen-django2">
+        <fileTransfer accessType="SFTP" host="13.126.109.78" port="22" sshConfigId="8d9a24d7-2d3e-4db7-a25e-676fa5b0f5dd" sshConfig="ubuntu@13.126.109.78:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

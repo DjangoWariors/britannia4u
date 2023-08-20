@@ -1,0 +1,419 @@
+{% extends 'b4u/includes/base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .ui-dropdownchecklist-selector {
+            padding: 5px;
+        }
+
+        .ui-dropdownchecklist-selector imput {
+            width: 20px !important;
+        }
+
+        .Redemption_table input[type="checkbox"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            width: 20px;
+        }
+
+
+        .ui-state-default,
+        .ui-widget-content .ui-state-default,
+        .ui-widget-header .ui-state-default {
+            font-size: 12px;
+        }
+
+        .ms-drop {
+            width: 351px !important;
+        }
+
+        .ms-choice > span {
+            width: 330px !important;
+        }
+
+        .white-space {
+            white-space: pre;
+        }
+
+        .badge-light {
+            color: #323a46;
+            background-color: #f7f7f7;
+            display: contents !important;
+        }
+
+        .badge-light {
+            color: #323a46;
+            background-color: #f7f7f7;
+            display: contents !important;
+        }
+
+        .table > tbody > tr > td,
+        .table > tbody > tr > th,
+        .table > tfoot > tr > td,
+        .table > tfoot > tr > th,
+        .table > thead > tr > td,
+        .table > thead > tr > th {
+            padding: 4px !important;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border: 1px solid #ddd;
+
+            overflow: hidden;
+            white-space: initial;
+            border-bottom-color: inherit;
+            border-bottom-style: solid;
+            width: 0px !important;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .Export-text {
+            text-align: end;
+            margin-bottom: 10px;
+        }
+
+        .table > caption + thead > tr:first-child > td,
+        .table > caption + thead > tr:first-child > th,
+        .table > colgroup + thead > tr:first-child > td,
+        .table > colgroup + thead > tr:first-child > th,
+        .table > thead:first-child > tr:first-child > td,
+        .table > thead:first-child > tr:first-child > th {
+            border-top: 0;
+            vertical-align: inherit;
+        }
+
+        .table > thead {
+            background: #337ab7;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        table.dataTable {
+            clear: both;
+            margin-top: 6px !important;
+            margin-bottom: 6px !important;
+            max-width: none !important;
+            border-collapse: collapse;
+            border: 1px solid;
+        }
+
+        .display-flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .edit-icon {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .tagr-img {
+            background: #000;
+            border-radius: 50px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            width: 20px;
+        }
+
+        .modal-width {
+            width: 81% !important;
+            margin: auto;
+        }
+    </style>
+
+
+
+
+    <div class="clearfix"></div>
+    <div class="MainDivContent">
+        <div class="container container_bg">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="Main_page">
+                            <h2 class="head-h2">
+                                User Master
+                            </h2>
+                            <div class="mobile_div">
+
+                                <div class="container">
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-lg-4"></div>
+                                            <div class="col-lg-4">
+
+                                            </div>
+                                            <div class="col-lg-4 Export-text d-flex">
+
+                                                <a class="btn btn-success adn-btn  mr-3" href="{% url 'register-user' %}">Add
+                                                    User</a>
+                                                <a class="btn btn-success adn-btn  mr-3"
+                                                   href="{% url 'upload-user' %}">Upload
+                                                    User</a>
+                                                <button id="btnExport" onclick="fnExcelReport()"
+                                                        class=" btn btn-success adn-btn  mr-3">
+                                                    <i class="metismenu-icon fas fa-arrow-alt-circle-down mr-2"></i>Export
+                                                    to excel
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="example" class="table">
+                                            <thead>
+                                            <tr>
+                                                <th> User Name</th>
+                                                <th> First Name</th>
+                                                <th> Last Name</th>
+                                                <th> Entity</th>
+                                                <th> Mobile</th>
+                                                <th> RSM</th>
+                                                <th> ASM</th>
+                                                <th> ASE</th>
+                                                <th> SOM</th>
+                                                <th> UDM</th>
+                                                <th> Region</th>
+                                                <th> User Type</th>
+                                                <th> Program</th>
+                                                <th> Tier</th>
+                                                <th> Status</th>
+                                                <th> KYC</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for data in users %}
+                                                <tr>
+                                                    <td>{{ data.username }}</td>
+                                                    <td>{{ data.first_name }} </td>
+                                                    <td>{{ data.last_name }} </td>
+                                                    <td>{{ data.entity_name }} </td>
+                                                    <td>{{ data.mobile }}  </td>
+                                                    <td>{{ data.regional_manager }} </td>
+                                                    <td>{{ data.area_sales_manager }}</td>
+                                                    <td>{{ '' }}</td>
+                                                    <td>{{ data.som_username }}</td>
+                                                    <td>{{ data.udm }}</td>
+                                                    <td>{{ data.rigion }} </td>
+                                                    <td>{{ data.role }} </td>
+                                                    <td>{{ data.program }} </td>
+                                                    <td>{{ data.tier }} </td>
+                                                    <td>
+                                                        {% if data.is_active == True %}
+                                                        {{ 'Active' }}
+                                                            {% else %}
+                                                            {{ 'Inactive' }}
+                                                        {% endif %}
+                                                        </td>
+                                                    <td>{{ 'kyc' }} <?php echo 'kyc'?></td>
+                                                    <td>
+                                                        <div class="edit-icon">
+                                                            <div class="badge status-badge badge-light">
+                                                                <a href="#" onclick="openModal()">
+                                                                    <i class="fa fa-eye"
+                                                                       style="font-size:16px;color:GRAY;  "></i>
+                                                                </a>
+
+
+                                                            </div>
+                                                            <div class="badge status-badge badge-light">
+                                                                <a href="{% url 'update-user' pk=data.id %}" >
+                                                                    <i class="fa fa-pencil "
+                                                                       style="font-size:16px;color:DARK; "></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="badge status-badge badge-light">
+                                                                <a href="{% url 'delete-user' pk=data.id %}" onclick="return confirm('Are you sure you want to delete this item?');" >
+                                                                    <i class="fa fa-trash"
+                                                                       style="font-size:16px;color:red; "></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="badge status-badge badge-light">
+                                                                <a href="HomeR.php">
+                                                                    <img style="background: #000;
+                                                            border-radius: 50px;
+                                                            align-items: center;
+                                                            display: flex;
+                                                            justify-content: center;"
+                                                                         src="https://www.britannia4u.com/Content/images/icon/Target-icon.svg"
+                                                                         alt="">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-5">
+                                            <div class="dataTables_info" id="datatable_info" role="status"
+                                                 aria-live="polite">Showing {{ users.start_index }}
+                                                to {{ users.end_index }}
+                                                of {{ users.paginator.count }} entries
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-7 ">
+
+                                            <!-- Pagination links -->
+                                            <div class="d-flex text-right">
+                                                <nav aria-label="Page navigation ">
+                                                    <ul class="pagination pagination-rounded" style="margin: 4px 0;">
+                                                        {% if users.has_previous %}
+                                                            <li class="page-item">
+                                                                <a class="page-link"
+                                                                   href="?page={{ users.previous_page_number }}&blends_type_id={{ blends_type_id }}&from_date={{ from_date }}&to_date={{ to_date }}&users_type={{ users_type }}">Previous</a>
+                                                            </li>
+                                                        {% endif %}
+
+                                                        <li class="page-item active" aria-current="page">
+                                                            <span class="page-link">{{ users.number }}</span>
+                                                        </li>
+
+                                                        {% if users.has_next %}
+                                                            <li class="page-item">
+                                                                <a class="page-link"
+                                                                   href="?page={{ users.next_page_number }}&blends_type_id={{ blends_type_id }}&from_date={{ from_date }}&to_date={{ to_date }}&users_type={{ users_type }}">Next</a>
+                                                            </li>
+                                                        {% endif %}
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="modal fade" id="viewModal" tabindex="-1" role="dialog"
+                                     aria-labelledby="viewModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-width" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <div class="modal-title display-flex">
+                                                    <h5 id="viewModalLabel">View Retailer Details</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row ">
+                                                    <div class="table-responsive col-lg-12">
+                                                        <table id="example" class="table">
+                                                            <thead>
+                                                            <tr>
+                                                                <th class="white-space">Region</th>
+                                                                <th class="white-space">KATs OLs count</th>
+                                                                <th class="white-space">L3M payout (Avg)</th>
+                                                                <th class="white-space">Current Month Payout</th>
+                                                                <th class="white-space">Current Month Pending Payout
+                                                                </th>
+
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+
+                                                            <tr>
+                                                                <td>East</td>
+                                                                <td>KATs OLs count</td>
+                                                                <td>L3M payout (Avg)</td>
+                                                                <td>Current Month Payout</td>
+                                                                <td>Current Month Pending Payout</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+
+
+{% endblock %}
+
+
+{% block script %}
+
+    <script>
+        $(document).ready(function () {
+            dataTable = $("#example").DataTable({
+                // "columnDefs": [{
+                //     "targets": [8],
+                //     "visible": false
+                // }]
+
+            });
+        });
+    </script>
+    <script>
+        function openModal() {
+            // Code to populate and show the view modal
+            $('#viewModal').modal('show');
+        }
+
+        function openEditModal() {
+            // Code to populate and show the edit modal
+            $('#editModal').modal('show');
+        }
+    </script>
+    <script>
+        function openDeleteModal(url) {
+            alert(url)
+            $('#deleteModal').modal('show');
+        }
+    </script>
+    <script>
+        function fnExcelReport() {
+            var table = document.getElementById('example'); // id of table
+            var tableHTML = table.outerHTML;
+            var fileName = 'RetailerPayout.xls';
+
+            var msie = window.navigator.userAgent.indexOf("MSIE ");
+
+            // If Internet Explorer
+            if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+                dummyFrame.document.open('txt/html', 'replace');
+                dummyFrame.document.write(tableHTML);
+                dummyFrame.document.close();
+                dummyFrame.focus();
+                return dummyFrame.document.execCommand('SaveAs', true, fileName);
+            }
+            //other browsers
+            else {
+                var a = document.createElement('a');
+                tableHTML = tableHTML.replace(/  /g, '').replace(/ /g, '%20'); // replaces spaces
+                a.href = 'data:application/vnd.ms-excel,' + tableHTML;
+                a.setAttribute('download', fileName);
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+        }
+    </script>
+{% endblock %}

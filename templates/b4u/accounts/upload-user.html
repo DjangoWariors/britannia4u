@@ -1,0 +1,348 @@
+{% extends 'b4u/includes/base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .ui-dropdownchecklist-selector {
+            padding: 5px;
+        }
+
+        .ui-dropdownchecklist-selector imput {
+            width: 20px !important;
+        }
+
+        .Redemption_table input[type="checkbox"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            width: 20px;
+        }
+
+
+        .ui-state-default,
+        .ui-widget-content .ui-state-default,
+        .ui-widget-header .ui-state-default {
+            font-size: 12px;
+        }
+
+        .ms-drop {
+            width: 351px !important;
+        }
+
+        .ms-choice > span {
+            width: 330px !important;
+        }
+
+        .white-space {
+            white-space: pre;
+        }
+
+        .badge-light {
+            color: #323a46;
+            background-color: #f7f7f7;
+            display: contents !important;
+        }
+
+        .badge-light {
+            color: #323a46;
+            background-color: #f7f7f7;
+            display: contents !important;
+        }
+
+        .table > tbody > tr > td,
+        .table > tbody > tr > th,
+        .table > tfoot > tr > td,
+        .table > tfoot > tr > th,
+        .table > thead > tr > td,
+        .table > thead > tr > th {
+            padding: 4px !important;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border: 1px solid #ddd;
+
+            overflow: hidden;
+            white-space: initial;
+            border-bottom-color: inherit;
+            border-bottom-style: solid;
+            width: 0px !important;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .Export-text {
+            text-align: end;
+            margin-bottom: 10px;
+        }
+
+        .table > caption + thead > tr:first-child > td,
+        .table > caption + thead > tr:first-child > th,
+        .table > colgroup + thead > tr:first-child > td,
+        .table > colgroup + thead > tr:first-child > th,
+        .table > thead:first-child > tr:first-child > td,
+        .table > thead:first-child > tr:first-child > th {
+            border-top: 0;
+            vertical-align: inherit;
+        }
+
+        .table > thead {
+            background: #337ab7;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        table.dataTable {
+            clear: both;
+            margin-top: 6px !important;
+            margin-bottom: 6px !important;
+            max-width: none !important;
+            border-collapse: collapse;
+            border: 1px solid;
+        }
+
+        .display-flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .edit-icon {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .tagr-img {
+            background: #000;
+            border-radius: 50px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            width: 20px;
+        }
+
+        .modal-width {
+            width: 81% !important;
+            margin: auto;
+        }
+    </style>
+
+
+
+
+    <div class="clearfix"></div>
+    <div class="MainDivContent">
+        <div class="container container_bg">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="Main_page">
+                            <h2 class="head-h2">
+                                User Master
+                            </h2>
+                            <div class="mobile_div">
+
+                                <div class="container">
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-lg-4"></div>
+                                            <div class="col-lg-4">
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="card">
+                                            <div id="demo1" class="collapse">
+                                                <form id="Form1" action="" method="post">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label>
+                                                                    Select Profile:
+                                                                </label>
+                                                                <select id="USR_PRFID" name="USR_PRFID"
+                                                                        class="dropdownnormal form-control"
+                                                                        onchange="SetProfileExcel();">
+                                                                    <option value="0">-- Select Profile --</option>
+                                                                    <option value="19">RSM</option>
+                                                                    <option value="20">ASM</option>
+                                                                    <option value="21">Retailer</option>
+                                                                    <option value="22">Admin</option>
+                                                                    <option value="33">ASE</option>
+                                                                    <option value="34">SOM</option>
+                                                                    <option value="39">RDM</option>
+                                                                    <option value="40">UDM</option>
+                                                                    <option value="41">NSM</option>
+                                                                    <option value="42">NSDM</option>
+                                                                    <option value="43">VP Sales</option>
+                                                                    <option value="44">Distributer</option>
+                                                                    <option value="47">KYC Approver</option>
+                                                                    <option value="48">Program Admin</option>
+                                                                    <option value="49">BDM</option>
+                                                                    <option value="53">Readonly Admin</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>Select File</label><br>
+                                                                <span class="file-input">
+                                                                    <input type="file" name="file" class="form-control"
+                                                                           autocomplete="off">
+                                                                </span><span class="file-formate">
+                                                                    <a href="" target="_blank">Download Format</a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+
+
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-lg-12 text-center">
+                                                            <div class="form-group">
+                                                                <input type="button"
+                                                                       class="btn btn-success adn-btn file-btn"
+                                                                       name="Save" id="btnSave" value="Save"
+                                                                       onclick="show();" autocomplete="off">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <form id="Form1" action="{% url 'upload-user' %}" method="post" enctype="multipart/form-data">
+                                                    {% csrf_token %}
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label>
+                                                                    Select Profile:
+                                                                </label>
+                                                                {{ form.role }}
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>Select File</label><br>
+                                                                <span class="file-input">
+
+                                                                    {{ form.csv_file }}
+                                                                </span><span class="file-formate">
+                                                                    <a href="" target="_blank">Download Format</a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+
+
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-lg-12 text-center">
+                                                            <div class="form-group">
+
+
+                                                                <button type="submit"  class="btn btn-success adn-btn file-btn">Save</button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+
+
+{% endblock %}
+
+
+{% block script %}
+
+    <script>
+        $(document).ready(function () {
+            dataTable = $("#example").DataTable({
+                // "columnDefs": [{
+                //     "targets": [8],
+                //     "visible": false
+                // }]
+
+            });
+        });
+    </script>
+    <script>
+        function openModal() {
+            // Code to populate and show the view modal
+            $('#viewModal').modal('show');
+        }
+
+        function openEditModal() {
+            // Code to populate and show the edit modal
+            $('#editModal').modal('show');
+        }
+    </script>
+    <script>
+        function openDeleteModal(url) {
+            alert(url)
+            $('#deleteModal').modal('show');
+        }
+    </script>
+    <script>
+        function fnExcelReport() {
+            var table = document.getElementById('example'); // id of table
+            var tableHTML = table.outerHTML;
+            var fileName = 'RetailerPayout.xls';
+
+            var msie = window.navigator.userAgent.indexOf("MSIE ");
+
+            // If Internet Explorer
+            if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+                dummyFrame.document.open('txt/html', 'replace');
+                dummyFrame.document.write(tableHTML);
+                dummyFrame.document.close();
+                dummyFrame.focus();
+                return dummyFrame.document.execCommand('SaveAs', true, fileName);
+            }
+            //other browsers
+            else {
+                var a = document.createElement('a');
+                tableHTML = tableHTML.replace(/  /g, '').replace(/ /g, '%20'); // replaces spaces
+                a.href = 'data:application/vnd.ms-excel,' + tableHTML;
+                a.setAttribute('download', fileName);
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+        }
+    </script>
+{% endblock %}

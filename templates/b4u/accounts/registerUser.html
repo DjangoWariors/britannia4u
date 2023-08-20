@@ -1,0 +1,468 @@
+{% extends 'b4u/includes/base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .ui-dropdownchecklist-selector {
+            padding: 5px;
+        }
+
+        .ui-dropdownchecklist-selector imput {
+            width: 20px !important;
+        }
+
+        .Redemption_table input[type="checkbox"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            width: 20px;
+        }
+
+
+        .ui-state-default,
+        .ui-widget-content .ui-state-default,
+        .ui-widget-header .ui-state-default {
+            font-size: 12px;
+        }
+
+        .ms-drop {
+            width: 351px !important;
+        }
+
+        .ms-choice > span {
+            width: 330px !important;
+        }
+
+        .white-space {
+            white-space: pre;
+        }
+
+        .badge-light {
+            color: #323a46;
+            background-color: #f7f7f7;
+            display: contents !important;
+        }
+
+        .badge-light {
+            color: #323a46;
+            background-color: #f7f7f7;
+            display: contents !important;
+        }
+
+        .table > tbody > tr > td,
+        .table > tbody > tr > th,
+        .table > tfoot > tr > td,
+        .table > tfoot > tr > th,
+        .table > thead > tr > td,
+        .table > thead > tr > th {
+            padding: 4px !important;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border: 1px solid #ddd;
+
+            overflow: hidden;
+            white-space: initial;
+            border-bottom-color: inherit;
+            border-bottom-style: solid;
+            width: 0px !important;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .Export-text {
+            text-align: end;
+            margin-bottom: 10px;
+        }
+
+        .table > caption + thead > tr:first-child > td,
+        .table > caption + thead > tr:first-child > th,
+        .table > colgroup + thead > tr:first-child > td,
+        .table > colgroup + thead > tr:first-child > th,
+        .table > thead:first-child > tr:first-child > td,
+        .table > thead:first-child > tr:first-child > th {
+            border-top: 0;
+            vertical-align: inherit;
+        }
+
+        .table > thead {
+            background: #337ab7;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        table.dataTable {
+            clear: both;
+            margin-top: 6px !important;
+            margin-bottom: 6px !important;
+            max-width: none !important;
+            border-collapse: collapse;
+            border: 1px solid;
+        }
+
+        .display-flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .edit-icon {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .tagr-img {
+            background: #000;
+            border-radius: 50px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            width: 20px;
+        }
+
+        .modal-width {
+            width: 81% !important;
+            margin: auto;
+        }
+    </style>
+
+
+
+
+    <div class="clearfix"></div>
+    <div class="MainDivContent">
+        <div class="container container_bg">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="Main_page">
+                            <h2 class="head-h2">
+                                User Master
+                            </h2>
+                            <div class="mobile_div">
+
+                                <div class="container">
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <form id="form" action="{{ request.build_absolute_uri }}" method="POST">
+                                                    {% csrf_token %}
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>User Name * </label>
+                                                                {{ user_form.username }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.username.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label> First Name *</label>
+                                                                {{ user_form.first_name }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.first_name.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Last Name *</label>
+                                                                {{ user_form.last_name }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.last_name.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Email *</label>
+                                                                {{ user_form.email }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.email.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Personal Email</label>
+                                                                {{ user_form.personal_email }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.personal_email.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Mobile *</label>
+                                                               {{ user_form.mobile_no }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.mobile_no.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Phone</label>
+                                                                {{ user_form.phone_no }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.phone_no.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Address1</label>
+                                                                {{ user_form.address }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.address.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Address2</label>
+                                                                {{ user_form.address2 }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.address2.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>City</label>
+                                                                {{ user_form.city }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.city.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>State</label>
+                                                                {{ user_form.state }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.state.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>PIN</label>
+                                                                {{ user_form.pin_code }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.pin_code.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Region</label>
+                                                                {{ user_form.region }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.region.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Status *</label>
+                                                               <select id="is_active" name="is_active" class="form-control">
+                                                                    <option value="" selected="selected">---------</option>
+                                                                    <option value="1" {% if user.is_active == True %} {{ 'selected' }}{% endif %} >Active</option>
+                                                                    <option value="0" {% if user.is_active == False %} {{ 'selected' }}{% endif %}>Inactive</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Profile *</label>
+                                                                {{ user_form.role }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.role.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Region Manager</label>
+                                                                {{ user_form.region_manager }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.region_manager.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Area Sales Manager</label>
+                                                               {{ user_form.area_sales_manager }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.area_sales_manager.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>SOM</label>
+                                                                {{ user_form.som }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.som.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>ASE</label>
+                                                                {{ user_form.ase }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.ase.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>UDM</label>
+                                                                {{ user_form.udm }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.udm.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>RDM</label>
+                                                                {{ user_form.rdm }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.rdm.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>NSM</label>
+                                                                {{ user_form.nsm }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.nsm.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>NSDM</label>
+                                                                {{ user_form.nsdm }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.nsdm.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>VP Sales</label>
+                                                                {{ user_form.vp_sales }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.vp_sales.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Distributor</label>
+                                                                {{ user_form.distributor }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.distributor.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Tier</label>
+                                                                {{ user_form.tier }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.tier.errors }}
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Program</label>
+                                                                {{ user_form.britannia_program }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.britannia_program.errors }}
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>Sub Program</label>
+                                                                {{ user_form.sub_program }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.sub_program.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <label>BDM</label>
+                                                                {{ user_form.sub_program }}
+                                                                <div class="error-messages">
+                                                                    {{ user_form.sub_program.errors }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12 text-center">
+                                                            <div class="form-group">
+                                                                <button style="cursor: pointer;" class="btn btn-danger" type="submit">Save</button>
+
+                                                                <a href="{% url 'user-master' %}" class="btn btn-danger">Cancel</a>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+
+
+{% endblock %}
+
+
+{% block script %}
+
+
+
+{% endblock %}

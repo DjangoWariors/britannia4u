@@ -1,0 +1,301 @@
+{% extends 'b4u/includes/base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .ui-dropdownchecklist-selector {
+            padding: 5px;
+        }
+
+        .ui-dropdownchecklist-selector imput {
+            width: 20px !important;
+        }
+
+        .Redemption_table input[type="checkbox"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            width: 20px;
+        }
+
+
+        .ui-state-default,
+        .ui-widget-content .ui-state-default,
+        .ui-widget-header .ui-state-default {
+            font-size: 12px;
+        }
+
+        .ms-drop {
+            width: 351px !important;
+        }
+
+        .ms-choice > span {
+            width: 330px !important;
+        }
+
+        .white-space {
+            white-space: pre;
+        }
+
+        .badge-light {
+            color: #323a46;
+            background-color: #f7f7f7;
+            display: contents !important;
+        }
+
+        .badge-light {
+            color: #323a46;
+            background-color: #f7f7f7;
+            display: contents !important;
+        }
+
+        .table > tbody > tr > td,
+        .table > tbody > tr > th,
+        .table > tfoot > tr > td,
+        .table > tfoot > tr > th,
+        .table > thead > tr > td,
+        .table > thead > tr > th {
+            padding: 4px !important;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border: 1px solid #ddd;
+
+            overflow: hidden;
+            white-space: initial;
+            border-bottom-color: inherit;
+            border-bottom-style: solid;
+            width: 0px !important;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .Export-text {
+            text-align: end;
+            margin-bottom: 10px;
+        }
+
+        .table > caption + thead > tr:first-child > td,
+        .table > caption + thead > tr:first-child > th,
+        .table > colgroup + thead > tr:first-child > td,
+        .table > colgroup + thead > tr:first-child > th,
+        .table > thead:first-child > tr:first-child > td,
+        .table > thead:first-child > tr:first-child > th {
+            border-top: 0;
+            vertical-align: inherit;
+        }
+
+        .table > thead {
+            background: #337ab7;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        table.dataTable {
+            clear: both;
+            margin-top: 6px !important;
+            margin-bottom: 6px !important;
+            max-width: none !important;
+            border-collapse: collapse;
+            border: 1px solid;
+        }
+
+        .display-flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .edit-icon {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .tagr-img {
+            background: #000;
+            border-radius: 50px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            width: 20px;
+        }
+
+        .modal-width {
+            width: 81% !important;
+            margin: auto;
+        }
+    </style>
+
+
+
+
+    <div class="clearfix"></div>
+    <div class="MainDivContent">
+        <div class="container container_bg">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="Main_page">
+                            <h2 class="head-h2">
+                                Britania Points Data
+                            </h2>
+                            <div class="mobile_div">
+
+                                <div class="container">
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-lg-4"></div>
+                                            <div class="col-lg-4">
+
+                                            </div>
+                                            <div class="col-lg-4 Export-text d-flex">
+                                                <a class="btn btn-success adn-btn  mr-3" href="{% url 'add-region' %}">Upload
+                                                    Points</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="example" class="table align-middle dataTable no-footer" role="grid"
+                                               aria-describedby="example_info">
+                                            <thead>
+                                            <tr role="row">
+                                                <th class="white-space sorting_asc" tabindex="0" aria-controls="example"
+                                                    rowspan="1" colspan="1" aria-sort="ascending"
+                                                    aria-label=" Id: activate to sort column descending"
+                                                    style="width: 25.0375px;"> Id
+                                                </th>
+                                                <th class="white-space sorting" tabindex="0" aria-controls="example"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label=" User Name: activate to sort column ascending"
+                                                    style="width: 106.137px;"> User Name
+                                                </th>
+                                                <th class="white-space sorting" tabindex="0" aria-controls="example"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label=" Month: activate to sort column ascending"
+                                                    style="width: 64.4875px;"> Month
+                                                </th>
+                                                <th class="white-space sorting" tabindex="0" aria-controls="example"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label=" Year: activate to sort column ascending"
+                                                    style="width: 47.6px;"> Year
+                                                </th>
+                                                <th class="white-space sorting" tabindex="0" aria-controls="example"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label=" Payout In Rs.: activate to sort column ascending"
+                                                    style="width: 126.875px;"> Payout In Rs.
+                                                </th>
+                                                <th class="white-space sorting" tabindex="0" aria-controls="example"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label=" UTR No: activate to sort column ascending"
+                                                    style="width: 76.975px;"> UTR No
+                                                </th>
+                                                <th class="white-space sorting" tabindex="0" aria-controls="example"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label=" Date: activate to sort column ascending"
+                                                    style="width: 48.95px;"> Date
+                                                </th>
+                                                <th class="white-space sorting" tabindex="0" aria-controls="example"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label=" Remark: activate to sort column ascending"
+                                                    style="width: 77.025px;"> Remark
+                                                </th>
+                                                <th class="white-space sorting" tabindex="0" aria-controls="example"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label=" Bank Name: activate to sort column ascending"
+                                                    style="width: 110.275px;"> Bank Name
+                                                </th>
+                                                <th class="white-space sorting" tabindex="0" aria-controls="example"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label=" Account Number: activate to sort column ascending"
+                                                    style="width: 158.375px;"> Account Number
+                                                </th>
+                                                <th class="white-space sorting" tabindex="0" aria-controls="example"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label=" Status: activate to sort column ascending"
+                                                    style="width: 65.575px;"> Status
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
+                                                    colspan="1" aria-label="Action: activate to sort column ascending"
+                                                    style="width: 115.887px;">Action
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for data in point %}
+                                                <tr role="row" class="odd">
+                                                    <td class="white-space sorting_1"> {{ data.pk }}</td>
+                                                    <td class="white-space">{{ data.user }}</td>
+                                                    <td class="white-space"> {{ data.month }}</td>
+                                                    <td class="white-space"> {{ data.year }}</td>
+                                                    <td class="white-space"> {{ data.amount }}</td>
+                                                    <td class="white-space"> {{ data.amount }}</td>
+                                                    <td class="white-space"> {{ data.date }}</td>
+                                                    <td class="white-space"> {{ data.remark }}</td>
+                                                    <td class="white-space"> {{ data.bank_name }}</td>
+                                                    <td class="white-space"> {{ data.account_no }}</td>
+                                                    <td class="white-space"> {{ data.status }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-5">
+                                            <div class="dataTables_info" id="datatable_info" role="status"
+                                                 aria-live="polite">Showing {{ point.start_index }}
+                                                to {{ point.end_index }}
+                                                of {{ point.paginator.count }} entries
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-7 ">
+
+                                            <!-- Pagination links -->
+                                            <div class="d-flex text-right">
+                                                <nav aria-label="Page navigation ">
+                                                    <ul class="pagination pagination-rounded" style="margin: 4px 0;">
+                                                        {% if point.has_previous %}
+                                                            <li class="page-item">
+                                                                <a class="page-link"
+                                                                   href="?page={{ point.previous_page_number }}&blends_type_id={{ blends_type_id }}&from_date={{ from_date }}&to_date={{ to_date }}&point_type={{ point_type }}">Previous</a>
+                                                            </li>
+                                                        {% endif %}
+
+                                                        <li class="page-item active" aria-current="page">
+                                                            <span class="page-link">{{ point.number }}</span>
+                                                        </li>
+
+                                                        {% if point.has_next %}
+                                                            <li class="page-item">
+                                                                <a class="page-link"
+                                                                   href="?page={{ point.next_page_number }}&blends_type_id={{ blends_type_id }}&from_date={{ from_date }}&to_date={{ to_date }}&point_type={{ point_type }}">Next</a>
+                                                            </li>
+                                                        {% endif %}
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+
+
+{% endblock %}
+
+
+{% block script %}
+
+
+
+{% endblock %}
